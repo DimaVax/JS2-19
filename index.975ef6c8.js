@@ -611,15 +611,18 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getMovies", ()=>getMovies);
 var _makeMarkupJs = require("../make-markup.js");
 var _deleteMovie = require("../delete-movie");
-const getMovies = ()=>{
-    return fetch('https://67a762d3203008941f6774aa.mockapi.io/movies/movies').then((data)=>data.json());
+const getMovies = async ()=>{
+    try {
+        return await fetch('https://67a762d3203008941f6774aa.mockapi.io/movies/movies').then((data)=>data.json());
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 getMovies().then((data)=>{
     (0, _makeMarkupJs.makeMarkup)(data);
     document.addEventListener("click", (e)=>{
         const elem = e.target;
         (0, _deleteMovie.deleteMovie)(elem);
-        console.log('test');
     });
 });
 
@@ -692,11 +695,14 @@ const deleteMovie = (elem)=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "deleteMovieAPI", ()=>deleteMovieAPI);
-const deleteMovieAPI = (id)=>{
-    console.log(id);
-    return fetch(`https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${id}`, {
-        method: "DELETE"
-    }).then((data)=>data.json());
+const deleteMovieAPI = async (id)=>{
+    try {
+        return await fetch(`https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${id}`, {
+            method: "DELETE"
+        }).then((data)=>data.json());
+    } catch (error) {
+        console.log(error.message);
+    }
 // .then(() => {
 //     console.log('movie was deleted succesfuly')
 // })
@@ -726,20 +732,24 @@ form.addEventListener("submit", (e)=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addDataAPI", ()=>addDataAPI);
-const addDataAPI = (title, genre, year, director)=>{
-    const options = {
-        method: "POST",
-        body: JSON.stringify({
-            title: title,
-            genre: genre,
-            year: year,
-            director: director
-        }),
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        }
-    };
-    return fetch("https://67a762d3203008941f6774aa.mockapi.io/movies/movies", options).then((data)=>data.json()).then((data)=>data).catch((error)=>console.log(error.message));
+const addDataAPI = async (title, genre, year, director)=>{
+    try {
+        const options = {
+            method: "POST",
+            body: JSON.stringify({
+                title: title,
+                genre: genre,
+                year: year,
+                director: director
+            }),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            }
+        };
+        return await fetch("https://67a762d3203008941f6774aa.mockapi.io/movies/movies", options).then((data)=>data.json()).then((data)=>data);
+    } catch  {
+        (error)=>console.log(error.message);
+    }
 }; // sendBtn.addEventListener("click", (e) => {
  //   e.preventDefault()
  // const addData = getData();
@@ -768,19 +778,23 @@ form.addEventListener("submit", (e)=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "editMovieAPI", ()=>editMovieAPI);
-const editMovieAPI = (title, genre, year, director, id)=>{
-    return fetch(`https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-            title: title,
-            genre: genre,
-            year: year,
-            director: director
-        }),
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        }
-    }).then((data)=>data.json()).catch((error)=>console.log(error.message));
+const editMovieAPI = async (title, genre, year, director, id)=>{
+    try {
+        return await fetch(`https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${id}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                title: title,
+                genre: genre,
+                year: year,
+                director: director
+            }),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            }
+        }).then((data)=>data.json());
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
