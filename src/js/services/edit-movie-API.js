@@ -1,5 +1,6 @@
-export const editMovieAPI = (title, genre, year, director, id) => {
-  return fetch(
+export const editMovieAPI = async (title, genre, year, director, id) => {
+  try{
+    return await fetch(
     `https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${id}`,
     {
       method: "PUT",
@@ -12,7 +13,9 @@ export const editMovieAPI = (title, genre, year, director, id) => {
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
-    })
-    .then((data) => data.json())
-    .catch((error) => console.log(error.message));
+    }).then((data) => data.json())
+  }
+  catch(error){
+    console.log(error.message);
+  }
 };
