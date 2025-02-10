@@ -1,0 +1,13 @@
+let e;const t=document.querySelector(".movies-list"),s=e=>{console.log(e),e.forEach(e=>{let s=`<li class="movie-item" id="${e.id}">
+            <h2 class="movie-title">Title: ${e.title}</h2>
+            <div class="movie-info">
+                <p class="movie-genre">Genre: ${e.genre}</p>
+                <p class="movie-year">Year of movie: ${e.year}</p>
+                <p class="movie-year">Director: ${e.director}</p>
+            </div>
+            <div class="server-btns">
+                <button class="server-btn delete-btn" type="button">delete</button>
+                <button class="server-btn edit-btn" type="button">edit</button>
+            </div>
+        </li>`;t.insertAdjacentHTML("beforeend",s)})},o=e=>(console.log(e),fetch(`https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${e}`,{method:"DELETE"}).then(e=>e.json())),n=e=>{e.classList.contains("delete-btn")&&o(e.parentElement.parentElement.id).then(e=>console.log(e)).catch(e=>{console.log(e.message)})};fetch("https://67a762d3203008941f6774aa.mockapi.io/movies/movies").then(e=>e.json()).then(e=>{s(e),document.addEventListener("click",e=>{n(e.target),console.log("test")})});const i=document.querySelector(".backdrop"),a=document.querySelector(".add-button"),c=document.querySelector(".close");a.addEventListener("click",e=>{e.preventDefault(),i.classList.remove("is-hidden")}),c.addEventListener("click",()=>{i.classList.add("is-hidden")});const l=(e,t,s,o)=>fetch("https://67a762d3203008941f6774aa.mockapi.io/movies/movies",{method:"POST",body:JSON.stringify({title:e,genre:t,year:s,director:o}),headers:{"Content-Type":"application/json; charset=UTF-8"}}).then(e=>e.json()).then(e=>e).catch(e=>console.log(e.message)),d=document.querySelector(".edit-modal__form");d.addEventListener("submit",e=>{e.preventDefault(),l(d.elements.edit-title.value,d.elements.edit-genre.value,d.elements.edit-year.value,d.elements.edit-director.value)});const r=(e,t,s,o,n)=>fetch(`https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${n}`,{method:"PUT",body:JSON.stringify({title:e,genre:t,year:s,director:o}),headers:{"Content-Type":"application/json; charset=UTF-8"}}).then(e=>e.json()).catch(e=>console.log(e.message)),m=document.querySelector(".edit-backdrop");document.addEventListener("click",t=>{t.target.classList.contains("edit-btn")&&(e=t.target.parentElement.parentElement.id,m.classList.remove("is-hidden"))}),document.addEventListener("click",e=>{e.target.classList.contains("edit-close")&&m.classList.add("is-hidden")});const v=document.querySelector(".edit-modal__form");v.addEventListener("submit",t=>{r(v.elements.title.value,v.elements.genre.value,v.elements.year.value,v.elements.director.value,e)});
+//# sourceMappingURL=index.8f25b588.js.map

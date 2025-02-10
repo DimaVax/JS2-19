@@ -1,0 +1,160 @@
+p, h2, button {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-image: url("cinema.d4b82fb5.jpg");
+  background-position: 0;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.movies-list {
+  flex-wrap: wrap;
+  gap: 100px;
+  display: flex;
+}
+
+.movie-item {
+  background-color: #ffba79;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  box-shadow: 33px 27px 34px #828282a1;
+}
+
+.movie-info {
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.server-btns {
+  gap: 20px;
+  display: flex;
+}
+
+.server-btn {
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+  height: 40px;
+}
+
+.add-button {
+  background-color: #ffba79;
+  border: none;
+  border-radius: 15px;
+  outline: solid #000;
+  width: 300px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  font-weight: 800;
+  display: block;
+}
+
+.backdrop, .edit-backdrop {
+  background-color: #0000009c;
+  position: fixed;
+  inset: 0;
+}
+
+.modal {
+  background-color: #ffc38a;
+  border-radius: 15px;
+  width: 30%;
+  height: 85%;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+
+.modal__form-label {
+  margin-bottom: 10px;
+  font-family: sans-serif;
+  font-size: 25px;
+  display: block;
+}
+
+.modal__form-input {
+  border: none;
+  border-radius: 15px;
+  outline: 3px solid;
+  width: 80%;
+  margin-bottom: 22px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.modal__form-button {
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  outline: 1px solid;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  display: block;
+}
+
+.edit-modal {
+  background-color: #ffc38a;
+  border-radius: 15px;
+  width: 30%;
+  height: 85%;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+
+.edit-modal__form-label {
+  margin-bottom: 10px;
+  font-family: sans-serif;
+  font-size: 25px;
+  display: block;
+}
+
+.edit-modal__form-input {
+  border: none;
+  border-radius: 15px;
+  outline: 3px solid;
+  width: 80%;
+  margin-bottom: 22px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.edit-modal__form-button {
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  outline: 1px solid;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  display: block;
+}
+/*# sourceMappingURL=index.2cdaf7bc.css.map */
