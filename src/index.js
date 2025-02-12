@@ -6,3 +6,4 @@ import './js/services/add-movie-API';
 import './js/services/delete-movie-API';
 import './js/delete-movie';
 import './js/modal/switch-edit-modal';
+import './js/render-page';

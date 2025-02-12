@@ -20,6 +20,16 @@ document.addEventListener('click', (e) => {
 const form = document.querySelector(".edit-modal__form");
 
 
-  form.addEventListener("submit", (e) => {
-    editMovieAPI(form.elements.title.value, form.elements.genre.value, form.elements.year.value, form.elements.director.value, parentId);
+  form.addEventListener("submit", async (e) => {
+    try{
+        e.preventDefault()
+        const editedData = {
+        title: form.elements.edit-title.value,
+        genre: form.elements.edit-genre.value,
+        year: form.elements.edit-year.value, 
+        director: form.elements.edit-director.value
+    }
+    await editMovieAPI(editedData, parentId);
+    } catch(error){console.log(error.message)}
+    
   });
