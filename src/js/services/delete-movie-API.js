@@ -1,7 +1,7 @@
 export const deleteMovieAPI = async (id) => {
   try {
     const responce = await fetch(
-      `https://67a762d3203008941f6774aa.mockapi.io/movies/movies/${id}`,
+      `http://localhost:3000/movies/${id}`,
       {
         method: "DELETE",
       }

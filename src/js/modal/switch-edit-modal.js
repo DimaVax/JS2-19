@@ -1,35 +1,32 @@
 import { editMovieAPI } from "../services/edit-movie-API";
 
-const backdrop = document.querySelector('.edit-backdrop');
+const backdrop = document.querySelector(".edit-backdrop");
 
-let parentId
+let parentId;
 
-document.addEventListener('click', (e) => {
-    if(e.target.classList.contains('edit-btn')){
-        parentId = e.target.parentElement.parentElement.id;
-        backdrop.classList.remove('is-hidden')
-    }
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("edit-btn")) {
+    parentId = e.target.parentElement.parentElement.id;
+    console.log(parentId);
+    backdrop.classList.remove("is-hidden");
+  }
 });
 
-document.addEventListener('click', (e) => {
-    if(e.target.classList.contains('edit-close')){
-        backdrop.classList.add('is-hidden')
-    }
-})
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("edit-close")) {
+    backdrop.classList.add("is-hidden");
+  }
+});
 
 const form = document.querySelector(".edit-modal__form");
 
-
-  form.addEventListener("submit", async (e) => {
-    try{
-        e.preventDefault()
-        const editedData = {
-        title: form.elements.edit-title.value,
-        genre: form.elements.edit-genre.value,
-        year: form.elements.edit-year.value, 
-        director: form.elements.edit-director.value
-    }
-    await editMovieAPI(editedData, parentId);
-    } catch(error){console.log(error.message)}
-    
-  });
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const editedData = {
+    title: form.elements.editTitle.value,
+    genre: form.elements.editGenre.value,
+    year: form.elements.editYear.value,
+    director: form.elements.editDirector.value,
+  };
+  editMovieAPI(editedData, parentId);
+});

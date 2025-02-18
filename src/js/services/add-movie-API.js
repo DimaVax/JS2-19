@@ -12,11 +12,11 @@ export const addDataAPI = async (title, genre, year, director) => {
         "Content-Type": "application/json; charset=UTF-8",
       },
     };
-    const responce = await fetch(
-      "https://67a762d3203008941f6774aa.mockapi.io/movies/movies",
+    const response = await fetch(
+      "http://localhost:3000/movies",
       options
     );
-    const data = await responce.json();
+    const data = await response.json();
     return data;
   } catch(error) {
      console.log(error.message);

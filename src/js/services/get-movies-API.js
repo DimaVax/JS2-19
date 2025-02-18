@@ -4,16 +4,18 @@ import { deleteMovie } from "../delete-movie";
 export const getMovies = async () => {
   try {
     const responce = await fetch(
-      "https://67a762d3203008941f6774aa.mockapi.io/movies/movies"
+      "http://localhost:3000/movies"
     );
     const data = await responce.json();
     makeMarkup(data);
 
-    const deleteBtn = document.querySelector('.delete-btn');
+    const deleteBtnArr = document.querySelectorAll('.delete-btn');
 
-    deleteBtn.addEventListener("click", (e) => {
-        const elem = e.target;
-        deleteMovie(elem);
+    deleteBtnArr.forEach(deleteBtn => {
+      deleteBtn.addEventListener("click", (e) => {
+        deleteMovie(e.target);
+        location.reload();
+    });
     });
   } catch(error) {
     console.log(error.message);

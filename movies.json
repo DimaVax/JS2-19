@@ -1,0 +1,32 @@
+{
+  "movies": [
+    {
+      "title": "с",
+      "genre": "с",
+      "year": "в",
+      "director": "с",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "title": "Pulp Fiction",
+      "genre": "Crime",
+      "director": "Quentin Tarantino",
+      "year": 1994
+    },
+    {
+      "id": "5",
+      "title": "Inception",
+      "genre": "Action",
+      "director": "Christopher Nolan",
+      "year": 2010
+    },
+    {
+      "id": "8ad4",
+      "title": "м",
+      "genre": "м",
+      "year": "м",
+      "director": "м"
+    }
+  ]
+}
